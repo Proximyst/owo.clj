@@ -13,7 +13,6 @@
   bytes - The data to send
   :api-url - The API endpoint to use; defaulted to owo.variables/*api-url*
   :user-agent - The User-Agent header value; defaulted to owo.variables/*user-agent*
-  :base - The base URL to add to the uploaded ID; defaulted to (:shorten owo.variables/*base-urls*)
 
   returns: {:success <true/false>
             :files [{:hash ^String :name ^String :url ^String :size ^Int}]}
