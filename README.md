@@ -1,6 +1,6 @@
 # owo.clj
 
-Clojure library to upload to [OwO.Whats-Th.is](whats-th.is)?
+Clojure library to upload to [OwO.Whats-Th.is](https://whats-th.is)?
 
 ## Usage
 
