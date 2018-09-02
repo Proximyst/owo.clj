@@ -71,10 +71,11 @@
         stream (ByteArrayOutputStream.)]
     (.nextBytes (ThreadLocalRandom/current) boundary)
     (loop [map maps]
-      (.write stream boundary)
-      (.write stream (.getBytes (str "Content-Disposition: form-data; name=\"files[]\"; filename=" (or (:filename map) "a.bin") "\n")))
-      (.write stream (.getBytes (str "Content-Type: " (or (name (:content-type map)) "application/octet-stream") "\n")))
-      (.write stream (:data map)))
+      (doto stream
+        (.write boundary)
+        (.write (.getBytes (str "Content-Disposition: form-data; name=\"files[]\"; filename=" (or (:filename map) "a.bin") "\n")))
+        (.write (.getBytes (str "Content-Type: " (or (name (:content-type map)) "application/octet-stream") "\n")))
+        (.write (:data map))))
     (.write stream boundary)
 
     (.toByteArray stream)))
